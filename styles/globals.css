@@ -76,6 +76,16 @@ input,
 textarea,
 select {
   font-family: "Noto Sans KR", sans-serif;
+  color: white;
+}
+
+:root {
+  --sub-text: #9f9f9f;
+}
+
+body,
+html {
+  background-color: #212326;
 }
 
 * {
