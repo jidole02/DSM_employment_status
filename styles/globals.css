@@ -88,6 +88,10 @@ html {
   background-color: #212326;
 }
 
+body {
+  overflow: hidden;
+}
+
 * {
   margin: 0;
   padding: 0;

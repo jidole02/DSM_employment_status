@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import DepartmentDetail from "../components/DepartmentDetail";
 import Header from "../components/Header";
 import { useState } from "react";
+import Footer from "../components/Footer";
 
 export default function ShowEmployment() {
   const [menuIndex, setMenuIndex] = useState(0);
@@ -9,6 +10,7 @@ export default function ShowEmployment() {
     <Wrapper>
       <Header menuIndex={menuIndex} />
       <DepartmentDetail setMenuIndex={setMenuIndex} />
+      <Footer />
     </Wrapper>
   );
 }
