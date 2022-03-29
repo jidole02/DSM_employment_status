@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { ReactElement } from "react";
+import { CardContents } from "./arr";
 
 function SubInforBox({
   title,
@@ -18,10 +19,10 @@ function SubInforBox({
 
 interface Props {
   index: number;
-  src: string;
+  contents: CardContents;
 }
 
-export default function DepartmentCard({ index, src }: Props) {
+export default function DepartmentCard({ index, contents }: Props) {
   return (
     <Wrapper
       style={{
@@ -32,21 +33,24 @@ export default function DepartmentCard({ index, src }: Props) {
       }}
     >
       <img
-        src={src}
+        src={contents.src}
         style={{
           width: `${700 - index * 90}px`,
           height: `${500 - index * 70}px`,
         }}
       />
       <Information style={index === 0 ? { opacity: 1 } : { opacity: 0 }}>
-        <h1>정보보안과</h1>
-        <p>보안 프로그래밍 및 운영체제를 배우는 개발과</p>
+        <h1>{contents.departmentName}</h1>
+        <p>{contents.description}</p>
         <SubInfor>
-          <SubInforBox title="취업률" content="85.4%" />
+          <SubInforBox title="취업률" content={`${contents.percent}%`} />
           <hr />
-          <SubInforBox title="통계" content="14/20명" />
+          <SubInforBox
+            title="통계"
+            content={`${contents.confirmPersonCnt}/${contents.personalPersonCnt}명`}
+          />
           <hr />
-          <SubInforBox title="담임" content="이동욱" />
+          <SubInforBox title="담임" content={contents.teacherName} />
         </SubInfor>
       </Information>
     </Wrapper>
