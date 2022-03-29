@@ -2,7 +2,11 @@ import styled from "@emotion/styled";
 import { Fragment, useEffect, useState } from "react";
 import DepartmentCard from "./Card";
 
-export default function DepartmentDetail() {
+interface Props {
+  setMenuIndex(a: number): void;
+}
+
+export default function DepartmentDetail({ setMenuIndex }: Props) {
   const [nowIndex, setNowIndex] = useState(0);
   let arr = [
     "https://img4.yna.co.kr/photo/yna/YH/2017/09/22/PYH2017092216660001300_P4.jpg",
@@ -15,6 +19,7 @@ export default function DepartmentDetail() {
     let index = 0;
     setInterval(() => {
       arr.push(arr[index % 4]);
+      setMenuIndex(index % 4);
       setList(arr);
       setNowIndex(index + 1);
       index++;

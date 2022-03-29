@@ -1,12 +1,14 @@
 import styled from "@emotion/styled";
 import DepartmentDetail from "../components/DepartmentDetail";
 import Header from "../components/Header";
+import { useState } from "react";
 
 export default function ShowEmployment() {
+  const [menuIndex, setMenuIndex] = useState(0);
   return (
     <Wrapper>
-      <Header />
-      <DepartmentDetail />
+      <Header menuIndex={menuIndex} />
+      <DepartmentDetail setMenuIndex={setMenuIndex} />
     </Wrapper>
   );
 }

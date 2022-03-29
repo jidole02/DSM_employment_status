@@ -21,16 +21,32 @@ function DepartmentComponent({
   );
 }
 
-export default function Menu() {
+export default function Menu({ menuIndex }: { menuIndex: number }) {
   return (
     <Wrapper>
       <Logo className="center">
         Han <br /> Nune
       </Logo>
-      <DepartmentComponent first_text="소프트웨어" last_text="개발 1반" />
-      <DepartmentComponent first_text="소프트웨어" last_text="개발 2반" />
-      <DepartmentComponent first_text="임베디드" last_text="개발과" />
-      <DepartmentComponent first_text="정보" last_text="보안과" isNow={true} />
+      <DepartmentComponent
+        first_text="소프트웨어"
+        last_text="개발 1반"
+        isNow={menuIndex === 0}
+      />
+      <DepartmentComponent
+        first_text="소프트웨어"
+        last_text="개발 2반"
+        isNow={menuIndex === 1}
+      />
+      <DepartmentComponent
+        first_text="임베디드"
+        last_text="개발과"
+        isNow={menuIndex === 2}
+      />
+      <DepartmentComponent
+        first_text="정보"
+        last_text="보안과"
+        isNow={menuIndex === 3}
+      />
     </Wrapper>
   );
 }

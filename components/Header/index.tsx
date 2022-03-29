@@ -1,10 +1,14 @@
 import styled from "@emotion/styled";
 import Menu from "./Menu";
 
-export default function Header() {
+interface Props {
+  menuIndex: number;
+}
+
+export default function Header({ menuIndex }: Props) {
   return (
     <Wrapper>
-      <Menu />
+      <Menu menuIndex={menuIndex} />
     </Wrapper>
   );
 }
