@@ -1,10 +1,12 @@
 import styled from "@emotion/styled";
+import DepartmentDetail from "../components/DepartmentDetail";
 import Header from "../components/Header";
 
 export default function ShowEmployment() {
   return (
     <Wrapper>
       <Header />
+      <DepartmentDetail />
     </Wrapper>
   );
 }
