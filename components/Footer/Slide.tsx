@@ -2,8 +2,14 @@ import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Company } from "../../interface";
 
-export default function Slide() {
+interface Props {
+  companys: Company[];
+}
+
+export default function Slide({ companys }: Props) {
+  let arr = companys;
   const [list, setList] = useState(arr);
   const [moveValue, setMoveValue] = useState(0);
   useEffect(() => {
@@ -24,7 +30,7 @@ export default function Slide() {
         {list.map((_, index) => (
           <div key={index}>
             <h3>{_.name}</h3>
-            <span>{_.local}</span>
+            <span>{_.region}</span>
           </div>
         ))}
       </Container>
@@ -57,95 +63,3 @@ const Container = styled.div`
     }
   }
 `;
-
-interface Company {
-  name: string;
-  local: string;
-}
-
-const arr: Company[] = [
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-  {
-    name: "루센트 블록",
-    local: "대전광역시",
-  },
-];

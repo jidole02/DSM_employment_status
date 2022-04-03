@@ -7,3 +7,8 @@ export interface Department {
   teacher_name: string;
   description: string;
 }
+
+export interface Company {
+  name: string;
+  region: string;
+}

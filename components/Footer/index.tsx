@@ -1,11 +1,16 @@
 import styled from "@emotion/styled";
+import { Company } from "../../interface";
 import Infor from "./Infor";
 import Slide from "./Slide";
 
-export default function Footer() {
+interface Props {
+  companys: Company[];
+}
+
+export default function Footer({ companys }: Props) {
   return (
     <Wrapper>
-      <Slide />
+      <Slide companys={companys} />
       <Infor />
     </Wrapper>
   );

@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   display: flex;
   gap: 45px;
   & span {
-    font-size: 17px;
+    font-size: 14px;
     color: var(--sub-text);
   }
 `;
