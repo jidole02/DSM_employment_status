@@ -5,11 +5,12 @@ import { useState } from "react";
 import Footer from "../components/Footer";
 import axios from "axios";
 import { GetStaticPropsResult } from "next";
-import { Company, Department } from "./../interface/index";
+import { Company, Department, Employment } from "./../interface/index";
 
 interface MainProps {
   departments: Department[];
   companys: Company[];
+  employment: Employment;
 }
 
 export default function ShowEmployment(props: MainProps) {
@@ -17,7 +18,7 @@ export default function ShowEmployment(props: MainProps) {
   const [menuIndex, setMenuIndex] = useState(0);
   return (
     <Wrapper>
-      <Header menuIndex={menuIndex} />
+      <Header menuIndex={menuIndex} employment={props.employment} />
       <DepartmentDetail
         setMenuIndex={setMenuIndex}
         departments={props.departments}
@@ -36,10 +37,14 @@ export async function getStaticProps(): Promise<
   const companysRes = await axios.get(
     `${process.env.NEXT_PUBLIC_API_URL}enterprise/leading`
   );
+  const employmentRes = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}student/employment`
+  );
   return {
     props: {
       departments: departmentsRes.data,
       companys: companysRes.data,
+      employment: employmentRes.data,
     },
   };
 }

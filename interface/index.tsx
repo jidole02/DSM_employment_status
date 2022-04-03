@@ -12,3 +12,7 @@ export interface Company {
   name: string;
   region: string;
 }
+
+export interface Employment {
+  percent: number;
+}

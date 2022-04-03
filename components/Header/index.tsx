@@ -1,17 +1,20 @@
 import styled from "@emotion/styled";
 import Menu from "./Menu";
+import { Employment } from "./../../interface/index";
 
 interface Props {
   menuIndex: number;
+  employment: Employment;
 }
 
-export default function Header({ menuIndex }: Props) {
+export default function Header({ menuIndex, employment }: Props) {
+  const today = new Date();
   return (
     <Wrapper>
       <Menu menuIndex={menuIndex} />
       <div className="fullEmployment">
-        <h3>취업률 : 83%</h3>
-        <span>2020년 7월 17일 기준</span>
+        <h3>취업률 : {employment.percent.toFixed(2)}%</h3>
+        <span>{today.toLocaleDateString()} 기준</span>
       </div>
     </Wrapper>
   );
