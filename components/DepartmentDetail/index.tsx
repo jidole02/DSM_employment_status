@@ -1,13 +1,15 @@
 import styled from "@emotion/styled";
 import { Fragment, useEffect, useState } from "react";
-import { arr } from "./arr";
 import DepartmentCard from "./Card";
+import { Department } from "./../../interface/index";
 
 interface Props {
   setMenuIndex(a: number): void;
+  departments: Department[];
 }
 
-export default function DepartmentDetail({ setMenuIndex }: Props) {
+export default function DepartmentDetail({ setMenuIndex, departments }: Props) {
+  let arr = departments;
   const [nowIndex, setNowIndex] = useState(0);
   const [list, setList] = useState(arr);
   useEffect(() => {

@@ -3,16 +3,40 @@ import DepartmentDetail from "../components/DepartmentDetail";
 import Header from "../components/Header";
 import { useState } from "react";
 import Footer from "../components/Footer";
+import axios from "axios";
+import { GetStaticPropsResult } from "next";
+import { Department } from "./../interface/index";
 
-export default function ShowEmployment() {
+interface MainProps {
+  departments: Department[];
+}
+
+export default function ShowEmployment(props: MainProps) {
+  console.log(props.departments);
   const [menuIndex, setMenuIndex] = useState(0);
   return (
     <Wrapper>
       <Header menuIndex={menuIndex} />
-      <DepartmentDetail setMenuIndex={setMenuIndex} />
+      <DepartmentDetail
+        setMenuIndex={setMenuIndex}
+        departments={props.departments}
+      />
       <Footer />
     </Wrapper>
   );
+}
+
+export async function getStaticProps(): Promise<
+  GetStaticPropsResult<MainProps>
+> {
+  const res = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}student/department`
+  );
+  return {
+    props: {
+      departments: res.data,
+    },
+  };
 }
 
 const Wrapper = styled.div`

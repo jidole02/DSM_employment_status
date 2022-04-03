@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { ReactElement } from "react";
-import { CardContents } from "./arr";
+import { Department } from "./../../interface/index";
 
 function SubInforBox({
   title,
@@ -19,7 +19,7 @@ function SubInforBox({
 
 interface Props {
   index: number;
-  contents: CardContents;
+  contents: Department;
 }
 
 export default function DepartmentCard({ index, contents }: Props) {
@@ -33,24 +33,27 @@ export default function DepartmentCard({ index, contents }: Props) {
       }}
     >
       <img
-        src={contents.src}
+        src={contents.image}
         style={{
           width: `${700 - index * 90}px`,
           height: `${500 - index * 70}px`,
         }}
       />
       <Information style={index === 0 ? { opacity: 1 } : { opacity: 0 }}>
-        <h1>{contents.departmentName}</h1>
+        <h1>{contents.name}</h1>
         <p>{contents.description}</p>
         <SubInfor>
-          <SubInforBox title="취업률" content={`${contents.percent}%`} />
+          <SubInforBox
+            title="취업률"
+            content={`${contents.percent.toFixed(2)}%`}
+          />
           <hr />
           <SubInforBox
             title="통계"
-            content={`${contents.confirmPersonCnt}/${contents.personalPersonCnt}명`}
+            content={`${contents.student_count}/${contents.found_job_student_count}명`}
           />
           <hr />
-          <SubInforBox title="담임" content={contents.teacherName} />
+          <SubInforBox title="담임" content={contents.teacher_name} />
         </SubInfor>
       </Information>
     </Wrapper>
@@ -97,6 +100,7 @@ const Information = styled.div`
     margin-top: 20px;
     color: var(--sub-text);
     font-size: 20px;
+    max-width: 500px;
   }
 `;
 
