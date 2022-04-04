@@ -14,7 +14,6 @@ interface MainProps {
 }
 
 export default function ShowEmployment(props: MainProps) {
-  console.log(props.departments);
   const [menuIndex, setMenuIndex] = useState(0);
   return (
     <Wrapper>
