@@ -4,7 +4,7 @@ export default function Infor() {
   return (
     <Wrapper>
       <span>Made By 정지원</span>
-      <span>Design By 정지원</span>
+      <span>Server By 정지우</span>
       <span>github.com/jidole02</span>
     </Wrapper>
   );
