@@ -10,26 +10,23 @@ interface Props {
 
 export default function DepartmentDetail({ setMenuIndex, departments }: Props) {
   let arr = departments;
-  const [nowIndex, setNowIndex] = useState(0);
-  const [list, setList] = useState(arr);
+  const [tempArr, setTempArr] = useState([0, 1, 2, 3]);
   useEffect(() => {
+    let arr = tempArr;
     let index = 0;
     setInterval(() => {
-      arr.push(arr[index % 4]);
-      setMenuIndex((index + 1) % 4);
-      setList(arr);
-      setNowIndex(index + 1);
+      setMenuIndex(index % 4);
       index++;
+      const temp = arr[0];
+      arr.shift();
+      arr.push(temp);
+      setTempArr(arr);
     }, 5000);
   }, []);
   return (
     <Wrapper>
-      {list.map((_, index) => (
-        <Fragment key={index}>
-          {index - nowIndex >= 0 && (
-            <DepartmentCard index={index - nowIndex} contents={_} />
-          )}
-        </Fragment>
+      {arr.map((_, index) => (
+        <DepartmentCard index={index} arr={tempArr} contents={_} key={index} />
       ))}
     </Wrapper>
   );

@@ -20,26 +20,29 @@ function SubInforBox({
 interface Props {
   index: number;
   contents: Department;
+  arr: number[];
 }
 
-export default function DepartmentCard({ index, contents }: Props) {
+export default function DepartmentCard({ index, contents, arr }: Props) {
+  const myIndex = arr.indexOf(index);
+  console.log(myIndex);
   return (
     <Wrapper
       style={{
-        transform: `translateX(-${index * 200}px)`,
-        zIndex: 100 - index,
-        marginTop: `${index * 50}px`,
-        opacity: `${1 - 0.2 * index}`,
+        transform: `translateX(-${(myIndex + 1) * 130}px)`,
+        marginTop: `${myIndex * 50}px`,
+        zIndex: arr.length - myIndex,
       }}
     >
       <img
         src={contents.image}
         style={{
-          width: `${700 - index * 90}px`,
-          height: `${500 - index * 70}px`,
+          width: `${700 - myIndex * 90}px`,
+          height: `${500 - myIndex * 70}px`,
+          opacity: `${1 - 0.2 * myIndex}`,
         }}
       />
-      <Information style={index === 0 ? { opacity: 1 } : { opacity: 0 }}>
+      <Information style={myIndex === 0 ? { opacity: 1 } : { opacity: 0 }}>
         <h1>{contents.name}</h1>
         <p>{contents.description}</p>
         <SubInfor>
@@ -68,6 +71,7 @@ const Wrapper = styled.div`
   justify-content: center;
   width: 100%;
   position: absolute;
+  transition: 1s;
   * {
     transition: 1s;
   }
