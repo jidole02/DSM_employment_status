@@ -25,7 +25,7 @@ export default function Menu({ menuIndex }: { menuIndex: number }) {
   return (
     <Wrapper>
       <Logo className="center">
-        Han <br /> Nune
+        Job <br /> Its.
       </Logo>
       <DepartmentComponent
         first_text="소프트웨어"
