@@ -25,7 +25,6 @@ interface Props {
 
 export default function DepartmentCard({ index, contents, arr }: Props) {
   const myIndex = arr.indexOf(index);
-  console.log(myIndex);
   return (
     <Wrapper
       style={{
@@ -56,7 +55,14 @@ export default function DepartmentCard({ index, contents, arr }: Props) {
             content={`${contents.student_count}/${contents.found_job_student_count}명`}
           />
           <hr />
-          <SubInforBox title="담임" content={contents.teacher_name} />
+          <SubInforBox
+            title="담임"
+            content={
+              contents.teacher_name.substring(0, 1) +
+              "O" +
+              contents.teacher_name.substring(2, 3)
+            }
+          />
         </SubInfor>
       </Information>
     </Wrapper>
