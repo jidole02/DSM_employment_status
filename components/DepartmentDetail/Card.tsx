@@ -52,7 +52,7 @@ export default function DepartmentCard({ index, contents, arr }: Props) {
           <hr />
           <SubInforBox
             title="통계"
-            content={`${contents.student_count}/${contents.found_job_student_count}명`}
+            content={`${contents.found_job_student_count}/${contents.student_count}명`}
           />
           <hr />
           <SubInforBox
