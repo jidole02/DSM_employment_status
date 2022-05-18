@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import { useState } from "react";
 import Footer from "../components/Footer";
 import axios from "axios";
-import { GetStaticPropsResult } from "next";
+import { GetServerSidePropsResult } from "next";
 import { Company, Department, Employment } from "./../interface/index";
 
 interface MainProps {
@@ -28,7 +28,7 @@ export default function ShowEmployment(props: MainProps) {
 }
 
 export async function getStaticProps(): Promise<
-  GetStaticPropsResult<MainProps>
+  GetServerSidePropsResult<MainProps>
 > {
   const departmentsRes = await axios.get(
     `${process.env.NEXT_PUBLIC_API_URL}student/department`
